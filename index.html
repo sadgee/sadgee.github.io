@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadgee Pandey · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0D1B2A;
+    --teal:    #1B6CA8;
+    --sky:     #4EACD1;
+    --frost:   #E8F4F8;
+    --white:   #FFFFFF;
+    --slate:   #4A5568;
+    --mist:    #F0F6FA;
+    --border:  #D1E4EE;
+    --tag-bg:  #DFF0FB;
+    --tag-txt: #1B6CA8;
+    --accent:  #E07B54;
+    --ops-accent: #2E8B6E;
+    --ops-tag-bg: #D6F0E8;
+    --ops-tag-txt: #1A6B52;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: var(--mist);
+    color: var(--navy);
+    line-height: 1.65;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav-logo {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: .03em;
+    font-family: 'DM Mono', monospace;
+  }
+  .nav-logo span { color: var(--sky); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: #A0B8CC;
+    text-decoration: none;
+    font-size: .88rem;
+    font-weight: 500;
+    transition: color .2s;
+    letter-spacing: .02em;
+  }
+  .nav-links a:hover { color: var(--sky); }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #163A5F 55%, #1B6CA8 100%);
+    color: var(--white);
+    padding: 90px 2.5rem 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234EACD1' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Professional monogram avatar */
+  .avatar-monogram {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 2px solid rgba(78,172,209,0.5);
+    margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(4px);
+    position: relative;
+    box-shadow: 0 0 0 6px rgba(78,172,209,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .avatar-monogram::before {
+    content: '';
+    position: absolute; inset: 4px;
+    border-radius: 50%;
+    border: 1px solid rgba(78,172,209,0.25);
+  }
+  .avatar-monogram span {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: .08em;
+    position: relative; z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin-bottom: .4rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .hero h1 span { color: var(--sky); }
+  .hero-sub {
+    font-size: 1rem;
+    color: #A8C8E0;
+    margin-bottom: 1.8rem;
+    font-weight: 400;
+    letter-spacing: .01em;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 2rem; }
+  .hero-tag {
+    background: rgba(78,172,209,.12);
+    color: #A8D8EE;
+    padding: .3rem .9rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 500;
+    border: 1px solid rgba(78,172,209,.2);
+    letter-spacing: .02em;
+  }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .65rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .88rem;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+    cursor: pointer;
+    letter-spacing: .01em;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+  .btn-primary { background: var(--sky); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.3); }
+  .btn-outline:hover { border-color: var(--sky); color: var(--sky); }
+
+  /* ── Stats strip ── */
+  .stats {
+    background: var(--white);
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    flex: 1; min-width: 130px; max-width: 200px;
+    text-align: center;
+    padding: 1.4rem 1rem;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-size: 1.9rem; font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+    font-family: 'DM Mono', monospace;
+  }
+  .stat-label { font-size: .75rem; color: var(--slate); margin-top: .35rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* ── Section wrapper ── */
+  .section { padding: 64px 2.5rem; max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-size: 1.5rem; font-weight: 800;
+    color: var(--navy);
+    margin-bottom: .4rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -.02em;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 36px; height: 3px;
+    background: var(--sky);
+    border-radius: 2px;
+    margin-top: .4rem;
+  }
+  .section-title.ops-title::after { background: var(--ops-accent); }
+  .section-intro { color: var(--slate); margin-bottom: 2.5rem; font-size: .95rem; margin-top: .5rem; }
+
+  /* ── Project grid ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.6rem;
+  }
+
+  /* ── Project card ── */
+  .card {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: 0 10px 36px rgba(27,108,168,.12); transform: translateY(-3px); }
+  .card.ops-card:hover { box-shadow: 0 10px 36px rgba(46,139,110,.1); }
+
+  .card-img-placeholder {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: .85rem;
+    font-weight: 500;
+    color: #789DB8;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-img-placeholder svg { opacity: .6; }
+  .card-icon-label {
+    font-size: .7rem; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; opacity: .55; margin-top: .15rem;
+  }
+  /* Real image headers */
+  .card-img-real {
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .card-img-real img, .card-img-real svg {
+    width: 100%; height: 100%;
+    display: block;
+  }
+  .card-img-real .img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(13,27,42,0.08) 0%, rgba(13,27,42,0.32) 100%);
+  }
+
+  .card-category {
+    font-size: .7rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent);
+    padding: 1rem 1.3rem .2rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .card-category.ops-cat { color: var(--ops-accent); }
+
+  .card-body { padding: .5rem 1.3rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+  .card-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; line-height: 1.3; letter-spacing: -.01em; }
+  .card-desc { font-size: .87rem; color: var(--slate); flex: 1; margin-bottom: 1rem; line-height: 1.6; }
+
+  .card-metrics {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+    margin-bottom: 1rem;
+  }
+  .metric {
+    background: var(--frost);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .22rem .65rem;
+    font-size: .76rem;
+    font-weight: 600;
+    color: var(--teal);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .01em;
+  }
+  .metric.ops-metric { color: var(--ops-accent); background: #EAF7F2; border-color: #B8E4D4; }
+
+  .card-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-txt);
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    font-size: .74rem;
+    font-weight: 500;
+  }
+  .tag.ops-tag { background: var(--ops-tag-bg); color: var(--ops-tag-txt); }
+
+  .card-links { display: flex; gap: .6rem; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .4rem .9rem;
+    border-radius: 6px;
+    font-size: .79rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+    letter-spacing: .01em;
+  }
+  .card-link-primary { background: var(--teal); color: var(--white); }
+  .card-link-primary:hover { background: var(--navy); }
+  .card-link-secondary { background: var(--frost); color: var(--teal); border: 1px solid var(--border); }
+  .card-link-secondary:hover { background: var(--tag-bg); }
+  .card-link-ops { background: var(--ops-accent); color: var(--white); }
+  .card-link-ops:hover { background: #1A6B52; }
+
+  /* ── Skills section ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem 1.2rem;
+  }
+  .skill-card h4 { font-size: .86rem; font-weight: 700; color: var(--navy); margin-bottom: .7rem; display: flex; align-items: center; gap: .4rem; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .skill-pill {
+    background: var(--frost);
+    color: var(--slate);
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+  }
+
+  /* ── Contact ── */
+  .contact-strip {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 2.5rem;
+  }
+  .contact-strip h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: .5rem; letter-spacing: -.02em; }
+  .contact-strip p { color: #A0B8CC; margin-bottom: 1.8rem; font-size: .95rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .6rem 1.4rem;
+    border-radius: 8px;
+    font-size: .87rem; font-weight: 600;
+    text-decoration: none;
+    transition: transform .15s, opacity .15s;
+    letter-spacing: .01em;
+  }
+  .contact-link:hover { transform: translateY(-2px); opacity: .9; }
+  .cl-github { background: #24292e; color: #fff; }
+  .cl-linkedin { background: #0A66C2; color: #fff; }
+  .cl-email { background: var(--sky); color: #fff; }
+
+  /* ── Footer ── */
+  footer {
+    background: #06121E;
+    color: #4A6A80;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .78rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── Divider ── */
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  /* ── Section label ── */
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: .5rem;
+    display: block;
+  }
+  .section-eyebrow.ops-eyebrow { color: var(--ops-accent); }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .section { padding: 44px 1.2rem; }
+    .hero { padding: 60px 1.2rem 56px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .stats { flex-direction: column; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo">SP <span>·</span> portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#ops">Supply Chain</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="avatar-monogram">
+    <span>SP</span>
+  </div>
+  <h1>Sadgee <span>Pandey</span></h1>
+  <p class="hero-sub">Data Scientist &amp; ML Engineer &nbsp;·&nbsp; CMU Tepper MSBA</p>
+
+  <div class="hero-tags">
+    <span class="hero-tag">Machine Learning</span>
+    <span class="hero-tag">Predictive Analytics</span>
+    <span class="hero-tag">Optimization</span>
+    <span class="hero-tag">Supply Chain Analytics</span>
+    <span class="hero-tag">AI Ethics</span>
+    <span class="hero-tag">Python · SQL · Power BI</span>
+  </div>
+
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="https://github.com/sadgee" class="btn btn-outline" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sadgee/" class="btn btn-outline" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Projects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">ML Models Built</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0.88</div>
+    <div class="stat-label">Best AUC Score</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">$146K</div>
+    <div class="stat-label">Revenue Optimized / Week</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">91%</div>
+    <div class="stat-label">CNN Test Accuracy</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">$37.7M</div>
+    <div class="stat-label">NPV Optimized (CaLNG)</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ML / ANALYTICS PROJECTS
+═══════════════════════════════════════════ -->
+<div id="projects" class="section">
+  <span class="section-eyebrow">Machine Learning &amp; Analytics</span>
+  <h2 class="section-title">Featured Projects</h2>
+  <p class="section-intro">End-to-end analytics pipelines spanning ML, optimization, ethics, and marketing intelligence.</p>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1: Horizon Telecom -->
+    <div class="card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#0D1B2A"/>
+  <defs><linearGradient id="tg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0D1B2A"/><stop offset="100%" stop-color="#163A5F"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#tg1)"/>
+  <line x1="0" y1="40" x2="600" y2="40" stroke="#1B6CA8" stroke-opacity="0.2" stroke-width="1"/>
+  <line x1="0" y1="80" x2="600" y2="80" stroke="#1B6CA8" stroke-opacity="0.2" stroke-width="1"/>
+  <line x1="0" y1="120" x2="600" y2="120" stroke="#1B6CA8" stroke-opacity="0.2" stroke-width="1"/>
+  <line x1="0" y1="160" x2="600" y2="160" stroke="#1B6CA8" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="60" y="100" width="40" height="60" fill="#1B6CA8" rx="3" opacity="0.8"/>
+  <rect x="120" y="70" width="40" height="90" fill="#1B6CA8" rx="3" opacity="0.9"/>
+  <rect x="180" y="50" width="40" height="110" fill="#4EACD1" rx="3"/>
+  <rect x="240" y="85" width="40" height="75" fill="#1B6CA8" rx="3" opacity="0.8"/>
+  <rect x="300" y="40" width="40" height="120" fill="#4EACD1" rx="3"/>
+  <rect x="360" y="65" width="40" height="95" fill="#1B6CA8" rx="3" opacity="0.9"/>
+  <rect x="420" y="55" width="40" height="105" fill="#4EACD1" rx="3"/>
+  <rect x="480" y="75" width="40" height="85" fill="#1B6CA8" rx="3" opacity="0.8"/>
+  <polyline points="80,105 140,75 200,55 260,90 320,45 380,70 440,60 500,80" fill="none" stroke="#E07B54" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="80" cy="105" r="4" fill="#E07B54"/>
+  <circle cx="200" cy="55" r="4" fill="#E07B54"/>
+  <circle cx="320" cy="45" r="4" fill="#E07B54"/>
+  <circle cx="440" cy="60" r="4" fill="#E07B54"/>
+  <text x="30" y="25" fill="#4EACD1" font-size="11" font-family="monospace" opacity="0.7">CUSTOMER CHURN ANALYTICS</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category">Telecom · End-to-End Pipeline</div>
+      <div class="card-body">
+        <div class="card-title">Horizon Telecom — Customer Churn Retention System</div>
+        <div class="card-desc">
+          A three-phase analytics pipeline (Descriptive → Predictive → Prescriptive) for a telecom retention team.
+          Segmented 7,043 customers into 4 risk clusters, built a Gradient Boosting churn classifier, then solved
+          a Multi-Tier Integer Program under budget &amp; capacity constraints to generate a weekly outreach schedule
+          with Markowitz-style risk adjustment.
+        </div>
+        <div class="card-metrics">
+          <span class="metric">AUC 0.880</span>
+          <span class="metric">$145,823 / week retained</span>
+          <span class="metric">7.5× lift vs random</span>
+          <span class="metric">K=4 segments</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Gradient Boosting</span>
+          <span class="tag">Integer Programming</span>
+          <span class="tag">K-Means</span>
+          <span class="tag">PCA</span>
+          <span class="tag">Markowitz Optimization</span>
+          <span class="tag">Python</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee" class="card-link card-link-primary" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: RateAdvisor / AI Ethics -->
+    <div class="card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#1A0F0A"/>
+  <defs><radialGradient id="rg2" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#3D1F0D" stop-opacity="1"/><stop offset="100%" stop-color="#1A0F0A" stop-opacity="1"/></radialGradient></defs>
+  <rect width="600" height="180" fill="url(#rg2)"/>
+  <!-- Neural net nodes -->
+  <circle cx="80" cy="50" r="8" fill="#E07B54" opacity="0.9"/><circle cx="80" cy="90" r="8" fill="#E07B54" opacity="0.7"/><circle cx="80" cy="130" r="8" fill="#E07B54" opacity="0.8"/>
+  <circle cx="200" cy="40" r="8" fill="#FF9966" opacity="0.8"/><circle cx="200" cy="75" r="8" fill="#FF9966" opacity="0.9"/><circle cx="200" cy="110" r="8" fill="#FF9966" opacity="0.7"/><circle cx="200" cy="145" r="8" fill="#FF9966" opacity="0.8"/>
+  <circle cx="320" cy="55" r="8" fill="#E07B54" opacity="0.9"/><circle cx="320" cy="90" r="8" fill="#E07B54" opacity="0.8"/><circle cx="320" cy="125" r="8" fill="#E07B54" opacity="0.7"/>
+  <circle cx="440" cy="65" r="8" fill="#FF9966" opacity="0.8"/><circle cx="440" cy="95" r="8" fill="#FF9966" opacity="0.9"/><circle cx="440" cy="125" r="8" fill="#FF9966" opacity="0.7"/>
+  <circle cx="540" cy="80" r="10" fill="#E07B54" opacity="1"/>
+  <!-- Connections -->
+  <line x1="88" y1="50" x2="192" y2="40" stroke="#E07B54" stroke-width="0.8" opacity="0.3"/>
+  <line x1="88" y1="50" x2="192" y2="75" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="88" y1="90" x2="192" y2="75" stroke="#E07B54" stroke-width="0.8" opacity="0.3"/>
+  <line x1="88" y1="90" x2="192" y2="110" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="88" y1="130" x2="192" y2="110" stroke="#E07B54" stroke-width="0.8" opacity="0.3"/>
+  <line x1="88" y1="130" x2="192" y2="145" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="208" y1="40" x2="312" y2="55" stroke="#FF9966" stroke-width="0.8" opacity="0.3"/>
+  <line x1="208" y1="75" x2="312" y2="55" stroke="#FF9966" stroke-width="0.8" opacity="0.4"/>
+  <line x1="208" y1="75" x2="312" y2="90" stroke="#FF9966" stroke-width="0.8" opacity="0.3"/>
+  <line x1="208" y1="110" x2="312" y2="90" stroke="#FF9966" stroke-width="0.8" opacity="0.4"/>
+  <line x1="208" y1="110" x2="312" y2="125" stroke="#FF9966" stroke-width="0.8" opacity="0.3"/>
+  <line x1="208" y1="145" x2="312" y2="125" stroke="#FF9966" stroke-width="0.8" opacity="0.4"/>
+  <line x1="328" y1="55" x2="432" y2="65" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="328" y1="90" x2="432" y2="95" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="328" y1="125" x2="432" y2="125" stroke="#E07B54" stroke-width="0.8" opacity="0.4"/>
+  <line x1="448" y1="65" x2="530" y2="80" stroke="#FF9966" stroke-width="1.2" opacity="0.5"/>
+  <line x1="448" y1="95" x2="530" y2="80" stroke="#FF9966" stroke-width="1.2" opacity="0.5"/>
+  <line x1="448" y1="125" x2="530" y2="80" stroke="#FF9966" stroke-width="1.2" opacity="0.5"/>
+  <text x="30" y="20" fill="#E07B54" font-size="11" font-family="monospace" opacity="0.7">RAG · LLM · AI ETHICS</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category">AI Ethics · LLM Safety · Fairness</div>
+      <div class="card-body">
+        <div class="card-title">RateAdvisor — Ethical AI for Auto Insurance</div>
+        <div class="card-desc">
+          Built a RAG-powered LLM insurance rate recommendation system (Meta Llama 3.1) with actuarial rate tables,
+          coverage FAQs, and safety compliance docs. Conducted red-team safety evaluation using the ALERT benchmark
+          (86.7% safe-response rate), disparate impact analysis with Fairlearn, and a full liability report.
+        </div>
+        <div class="card-metrics">
+          <span class="metric">86.7% safe-response rate</span>
+          <span class="metric">AUC 0.815</span>
+          <span class="metric">Fairlearn DI analysis</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">RAG / LLM</span>
+          <span class="tag">Llama 3.1</span>
+          <span class="tag">Red-Teaming</span>
+          <span class="tag">Fairlearn</span>
+          <span class="tag">Gradient Boosting</span>
+          <span class="tag">SHAP / XAI</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee" class="card-link card-link-primary" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: Deloitte Decision Intelligence -->
+    <div class="card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#0A1628"/>
+  <defs><linearGradient id="dg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#1A2E50"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#dg3)"/>
+  <!-- Stacked platform layers -->
+  <ellipse cx="300" cy="155" rx="220" ry="18" fill="#4A6FA5" opacity="0.25"/>
+  <rect x="110" y="130" width="380" height="28" rx="4" fill="#1E3A6E" opacity="0.8"/>
+  <rect x="140" y="100" width="320" height="28" rx="4" fill="#2A4A8E" opacity="0.8"/>
+  <rect x="170" y="70" width="260" height="28" rx="4" fill="#3A5AAE" opacity="0.8"/>
+  <rect x="200" y="40" width="200" height="28" rx="4" fill="#4A6FA5" opacity="0.9"/>
+  <!-- Labels on layers -->
+  <text x="300" y="149" fill="#A0C0E8" font-size="9.5" font-family="monospace" text-anchor="middle" opacity="0.9">DATA INFRASTRUCTURE</text>
+  <text x="300" y="119" fill="#B0D0F0" font-size="9.5" font-family="monospace" text-anchor="middle" opacity="0.9">PREDICTIVE MODELING</text>
+  <text x="300" y="89" fill="#C0D8F8" font-size="9.5" font-family="monospace" text-anchor="middle" opacity="0.9">SCENARIO SIMULATION</text>
+  <text x="300" y="59" fill="#D0E8FF" font-size="9.5" font-family="monospace" text-anchor="middle" opacity="0.9">DECISION INTELLIGENCE</text>
+  <text x="30" y="22" fill="#7A9FD5" font-size="11" font-family="monospace" opacity="0.7">CMU × DELOITTE CAPSTONE</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category">Decision Intelligence · CMU Capstone</div>
+      <div class="card-body">
+        <div class="card-title">Deloitte Decision Intelligence Platform</div>
+        <div class="card-desc">
+          CMU Tepper capstone project in partnership with Deloitte. Built an end-to-end decision intelligence
+          platform combining predictive modeling, scenario simulation, and prescriptive recommendations
+          to support enterprise decision-making under uncertainty.
+        </div>
+        <div class="card-metrics">
+          <span class="metric">CMU × Deloitte</span>
+          <span class="metric">End-to-end platform</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Decision Intelligence</span>
+          <span class="tag">Predictive Modeling</span>
+          <span class="tag">Scenario Analysis</span>
+          <span class="tag">Python</span>
+          <span class="tag">Data Visualization</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/deloitte-decision-intelligence" class="card-link card-link-primary" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: Marketing Analytics -->
+    <div class="card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#0A1A0F"/>
+  <defs><linearGradient id="mg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0A1A0F"/><stop offset="100%" stop-color="#142814"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#mg4)"/>
+  <!-- Funnel shape -->
+  <polygon points="150,20 450,20 370,80 230,80" fill="#2E7D52" opacity="0.7"/>
+  <polygon points="230,85 370,85 340,130 260,130" fill="#3A9A68" opacity="0.8"/>
+  <polygon points="260,135 340,135 320,165 280,165" fill="#4DB87A" opacity="0.9"/>
+  <!-- Funnel labels -->
+  <text x="300" y="57" fill="#B8E8C8" font-size="10" font-family="monospace" text-anchor="middle">AWARENESS  7,043 customers</text>
+  <text x="300" y="112" fill="#C8F0D8" font-size="10" font-family="monospace" text-anchor="middle">SEGMENTS  K=4 clusters</text>
+  <text x="300" y="155" fill="#D8F8E8" font-size="10" font-family="monospace" text-anchor="middle">CONVERT  AUC 0.88</text>
+  <!-- Scatter dots right side -->
+  <circle cx="510" cy="40" r="5" fill="#4DB87A" opacity="0.6"/>
+  <circle cx="540" cy="65" r="3" fill="#2E7D52" opacity="0.8"/>
+  <circle cx="520" cy="90" r="6" fill="#4DB87A" opacity="0.5"/>
+  <circle cx="555" cy="110" r="4" fill="#3A9A68" opacity="0.7"/>
+  <circle cx="530" cy="135" r="3" fill="#2E7D52" opacity="0.6"/>
+  <text x="30" y="22" fill="#4DB87A" font-size="11" font-family="monospace" opacity="0.7">CUSTOMER SEGMENTATION · ROI</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category">Marketing Analytics · Consumer Behavior</div>
+      <div class="card-body">
+        <div class="card-title">Marketing Analytics — Customer Segmentation &amp; Campaign Optimization</div>
+        <div class="card-desc">
+          Analyzed consumer behavior and campaign effectiveness across multiple datasets. Applied clustering,
+          regression, and classification to identify high-value segments, model purchase likelihood,
+          and optimize marketing spend allocation with data-driven targeting strategies.
+        </div>
+        <div class="card-metrics">
+          <span class="metric">Multi-dataset analysis</span>
+          <span class="metric">Segmentation + ROI modeling</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">K-Means</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Python</span>
+          <span class="tag">Data Visualization</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/Marketing" class="card-link card-link-primary" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 5: ML Fundamentals -->
+    <div class="card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#120A22"/>
+  <defs><linearGradient id="mlg5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#120A22"/><stop offset="100%" stop-color="#1E1040"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#mlg5)"/>
+  <!-- Matrix grid -->
+  <g opacity="0.35" stroke="#7B5EA7" stroke-width="0.5">
+    <line x1="50" y1="0" x2="50" y2="180"/><line x1="110" y1="0" x2="110" y2="180"/><line x1="170" y1="0" x2="170" y2="180"/>
+    <line x1="0" y1="45" x2="600" y2="45"/><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="135" x2="600" y2="135"/>
+  </g>
+  <!-- CNN feature map blocks -->
+  <rect x="30" y="25" width="50" height="50" rx="3" fill="#7B5EA7" opacity="0.6"/>
+  <rect x="95" y="35" width="40" height="40" rx="3" fill="#9B7EC7" opacity="0.7"/>
+  <rect x="150" y="40" width="32" height="32" rx="3" fill="#7B5EA7" opacity="0.8"/>
+  <!-- Pooling arrow -->
+  <text x="200" y="62" fill="#D0C0F0" font-size="18" opacity="0.5">→</text>
+  <!-- Fully connected -->
+  <circle cx="260" cy="40" r="7" fill="#9B7EC7" opacity="0.8"/>
+  <circle cx="260" cy="65" r="7" fill="#7B5EA7" opacity="0.9"/>
+  <circle cx="260" cy="90" r="7" fill="#9B7EC7" opacity="0.8"/>
+  <circle cx="260" cy="115" r="7" fill="#7B5EA7" opacity="0.7"/>
+  <circle cx="310" cy="52" r="7" fill="#B09AE0" opacity="0.9"/>
+  <circle cx="310" cy="80" r="7" fill="#9B7EC7" opacity="0.8"/>
+  <circle cx="310" cy="108" r="7" fill="#B09AE0" opacity="0.9"/>
+  <line x1="267" y1="40" x2="303" y2="52" stroke="#9B7EC7" stroke-width="0.7" opacity="0.5"/>
+  <line x1="267" y1="65" x2="303" y2="52" stroke="#9B7EC7" stroke-width="0.7" opacity="0.5"/>
+  <line x1="267" y1="90" x2="303" y2="80" stroke="#9B7EC7" stroke-width="0.7" opacity="0.5"/>
+  <line x1="267" y1="115" x2="303" y2="108" stroke="#9B7EC7" stroke-width="0.7" opacity="0.5"/>
+  <!-- Accuracy badge -->
+  <rect x="370" y="30" width="180" height="60" rx="8" fill="#1E1040" stroke="#7B5EA7" stroke-width="1" opacity="0.9"/>
+  <text x="460" y="55" fill="#D0C0F0" font-size="22" font-family="monospace" font-weight="bold" text-anchor="middle">91.25%</text>
+  <text x="460" y="75" fill="#9B7EC7" font-size="10" font-family="monospace" text-anchor="middle">CNN TEST ACCURACY</text>
+  <text x="30" y="168" fill="#9B7EC7" font-size="11" font-family="monospace" opacity="0.7">LINEAR → DEEP LEARNING · CMU 46-886</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category">Machine Learning Fundamentals · CMU 46-886</div>
+      <div class="card-body">
+        <div class="card-title">ML Fundamentals — From Linear Models to Deep Learning</div>
+        <div class="card-desc">
+          Comprehensive ML coursework covering the full algorithmic stack: linear &amp; logistic regression
+          (climate change, Titanic, Framingham), regularization (Ridge/LASSO), k-NN &amp; clustering
+          (music recommendation, S&amp;P 500), PCA, neural networks, and CNNs (Fashion MNIST, EMNIST — 88.2% accuracy).
+        </div>
+        <div class="card-metrics">
+          <span class="metric">CNN 91.25% test acc</span>
+          <span class="metric">MLP 88.2% (EMNIST)</span>
+          <span class="metric">AUC 0.769 (Framingham)</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Linear Regression</span>
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">k-NN</span>
+          <span class="tag">K-Means / Spectral</span>
+          <span class="tag">PCA</span>
+          <span class="tag">CNN / PyTorch</span>
+          <span class="tag">Ridge / LASSO</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee" class="card-link card-link-primary" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SUPPLY CHAIN / OPERATIONS SECTION
+═══════════════════════════════════════════ -->
+<div id="ops" class="section">
+  <span class="section-eyebrow ops-eyebrow">Operations Research &amp; Supply Chain</span>
+  <h2 class="section-title ops-title">Supply Chain Analytics</h2>
+  <p class="section-intro">Four optimization case studies applying LP, simulation, and inventory theory to real-world supply chain decisions — CMU Tepper MSBA, Team A11.</p>
+
+  <div class="projects-grid">
+
+    <!-- CASE 1: CaLNG -->
+    <div class="card ops-card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#071510"/>
+  <defs><linearGradient id="cg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1E18"/><stop offset="100%" stop-color="#071510"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#cg6)"/>
+  <!-- Ground line -->
+  <line x1="0" y1="155" x2="600" y2="155" stroke="#2E8B6E" stroke-width="1" opacity="0.3"/>
+  <!-- Storage tanks -->
+  <rect x="40" y="90" width="70" height="65" rx="4" fill="#1A4A3A" stroke="#2E8B6E" stroke-width="1.5"/>
+  <ellipse cx="75" cy="90" rx="35" ry="10" fill="#2E8B6E" opacity="0.8"/>
+  <rect x="140" y="75" width="85" height="80" rx="4" fill="#1A4A3A" stroke="#2E8B6E" stroke-width="1.5"/>
+  <ellipse cx="182" cy="75" rx="42" ry="12" fill="#2E8B6E" opacity="0.9"/>
+  <rect x="245" y="85" width="70" height="70" rx="4" fill="#1A4A3A" stroke="#2E8B6E" stroke-width="1.5"/>
+  <ellipse cx="280" cy="85" rx="35" ry="10" fill="#2E8B6E" opacity="0.8"/>
+  <!-- Pipelines -->
+  <path d="M75,155 L75,170 L500,170 L500,130" fill="none" stroke="#3AAA88" stroke-width="4" opacity="0.6"/>
+  <path d="M182,155 L182,165" fill="none" stroke="#3AAA88" stroke-width="4" opacity="0.6"/>
+  <path d="M280,155 L280,165" fill="none" stroke="#3AAA88" stroke-width="4" opacity="0.6"/>
+  <!-- NPV badge -->
+  <rect x="380" y="40" width="190" height="65" rx="8" fill="#071510" stroke="#2E8B6E" stroke-width="1.5" opacity="0.95"/>
+  <text x="475" y="68" fill="#4ECFA8" font-size="24" font-family="monospace" font-weight="bold" text-anchor="middle">$37.71M</text>
+  <text x="475" y="88" fill="#2E8B6E" font-size="10" font-family="monospace" text-anchor="middle">HYBRID STRATEGY NPV</text>
+  <text x="30" y="25" fill="#2E8B6E" font-size="11" font-family="monospace" opacity="0.7">CaLNG · NETWORK DESIGN · MONTE CARLO</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category ops-cat">Case 1 · Network Design</div>
+      <div class="card-body">
+        <div class="card-title">CaLNG — LNG Distribution Network Design</div>
+        <div class="card-desc">
+          Evaluated three distribution strategies for California LNG peak-shaving: slow-buildup satellite tanks,
+          centralized storage, and a hybrid model. Used Monte Carlo simulation to assess take-or-pay contract
+          value (mean demand 144 MMcf/day, SD 59 MMcf/day) and NPV analysis at 15% discount rate.
+        </div>
+        <div class="card-metrics">
+          <span class="metric ops-metric">Hybrid NPV $37.71M</span>
+          <span class="metric ops-metric">Optimal commit 850–910 MMcf</span>
+          <span class="metric ops-metric">Avg savings $6,282</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag ops-tag">Monte Carlo Simulation</span>
+          <span class="tag ops-tag">NPV Analysis</span>
+          <span class="tag ops-tag">Network Optimization</span>
+          <span class="tag ops-tag">Excel Solver</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/Supply-Chain-Analytics" class="card-link card-link-ops" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- CASE 2: BioPharma -->
+    <div class="card ops-card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#071218"/>
+  <defs><linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#071218"/><stop offset="100%" stop-color="#0D2030"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#bg7)"/>
+  <!-- World map dots (simplified continents) -->
+  <g fill="#1A4A3A" opacity="0.5">
+    <ellipse cx="150" cy="80" rx="60" ry="35"/>
+    <ellipse cx="290" cy="70" rx="50" ry="30"/>
+    <ellipse cx="390" cy="85" rx="40" ry="25"/>
+    <ellipse cx="490" cy="95" rx="35" ry="20"/>
+  </g>
+  <!-- Plant nodes -->
+  <circle cx="155" cy="95" r="9" fill="#2E8B6E" stroke="#4ECFA8" stroke-width="2"/><text x="155" y="99" fill="white" font-size="7" font-family="monospace" text-anchor="middle">BR</text>
+  <circle cx="200" cy="100" r="9" fill="#2E8B6E" stroke="#4ECFA8" stroke-width="2"/><text x="200" y="104" fill="white" font-size="7" font-family="monospace" text-anchor="middle">MX</text>
+  <circle cx="295" cy="60" r="9" fill="#2E8B6E" stroke="#4ECFA8" stroke-width="2"/><text x="295" y="64" fill="white" font-size="7" font-family="monospace" text-anchor="middle">DE</text>
+  <circle cx="360" cy="72" r="9" fill="#2E8B6E" stroke="#4ECFA8" stroke-width="2"/><text x="360" y="76" fill="white" font-size="7" font-family="monospace" text-anchor="middle">IN</text>
+  <circle cx="490" cy="85" r="9" fill="#2E8B6E" stroke="#4ECFA8" stroke-width="2"/><text x="490" y="89" fill="white" font-size="7" font-family="monospace" text-anchor="middle">JP</text>
+  <!-- Closed US node -->
+  <circle cx="120" cy="75" r="9" fill="#3A1A1A" stroke="#884444" stroke-width="2"/><text x="120" y="79" fill="#CC6666" font-size="7" font-family="monospace" text-anchor="middle">US✗</text>
+  <!-- Connection lines -->
+  <line x1="155" y1="95" x2="295" y2="60" stroke="#2E8B6E" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="155" y1="95" x2="360" y2="72" stroke="#2E8B6E" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="200" y1="100" x2="295" y2="60" stroke="#2E8B6E" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <line x1="295" y1="60" x2="490" y2="85" stroke="#2E8B6E" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <line x1="360" y1="72" x2="490" y2="85" stroke="#2E8B6E" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <!-- Cost badge -->
+  <rect x="380" y="120" width="195" height="45" rx="6" fill="#071218" stroke="#2E8B6E" stroke-width="1.2" opacity="0.95"/>
+  <text x="477" y="142" fill="#4ECFA8" font-size="18" font-family="monospace" font-weight="bold" text-anchor="middle">$899.82M</text>
+  <text x="477" y="157" fill="#2E8B6E" font-size="9" font-family="monospace" text-anchor="middle">OPTIMAL 2026 NETWORK COST</text>
+  <text x="30" y="22" fill="#2E8B6E" font-size="11" font-family="monospace" opacity="0.7">BIOPHARMA · GLOBAL PRODUCTION · MILP</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category ops-cat">Case 2 · Global Production Planning</div>
+      <div class="card-body">
+        <div class="card-title">BioPharma — Global Production Network Optimization</div>
+        <div class="card-desc">
+          Determined the optimal configuration of six global plants (Brazil, India, Germany, Japan, Mexico, U.S.)
+          for two pharmaceutical products across 2017–2026 using mixed-integer LP. Analyzed tariff uncertainty
+          (50% chance of 10% Europe–North America tariff) and its impact on network flexibility.
+        </div>
+        <div class="card-metrics">
+          <span class="metric ops-metric">2026 cost $899.82M</span>
+          <span class="metric ops-metric">10-year avg $927.64M</span>
+          <span class="metric ops-metric">U.S. plant closed</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag ops-tag">Mixed-Integer LP</span>
+          <span class="tag ops-tag">SolverTable</span>
+          <span class="tag ops-tag">Scenario Analysis</span>
+          <span class="tag ops-tag">Tariff Risk</span>
+          <span class="tag ops-tag">Excel Solver</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/Supply-Chain-Analytics" class="card-link card-link-ops" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- CASE 3: Green Apple -->
+    <div class="card ops-card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#081208"/>
+  <defs><linearGradient id="gg8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#081208"/><stop offset="100%" stop-color="#102010"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#gg8)"/>
+  <!-- Axes -->
+  <line x1="50" y1="20" x2="50" y2="155" stroke="#2E8B6E" stroke-width="1.5" opacity="0.6"/>
+  <line x1="50" y1="155" x2="570" y2="155" stroke="#2E8B6E" stroke-width="1.5" opacity="0.6"/>
+  <!-- Month labels -->
+  <text x="100" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">JAN</text>
+  <text x="185" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">FEB</text>
+  <text x="270" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">MAR</text>
+  <text x="355" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">APR</text>
+  <text x="440" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">MAY</text>
+  <text x="525" y="170" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">JUN</text>
+  <!-- Demand bars -->
+  <rect x="70" y="140" width="60" height="15" rx="2" fill="#2E8B6E" opacity="0.5"/>
+  <rect x="155" y="95" width="60" height="60" rx="2" fill="#2E8B6E" opacity="0.6"/>
+  <rect x="240" y="80" width="60" height="75" rx="2" fill="#3AAA88" opacity="0.7"/>
+  <rect x="325" y="55" width="60" height="100" rx="2" fill="#4ECFA8" opacity="0.8"/>
+  <rect x="410" y="90" width="60" height="65" rx="2" fill="#3AAA88" opacity="0.7"/>
+  <rect x="495" y="90" width="60" height="65" rx="2" fill="#2E8B6E" opacity="0.6"/>
+  <!-- Production line (flat/level) -->
+  <line x1="55" y1="110" x2="555" y2="110" stroke="#CCE8BC" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+  <!-- Inventory fill area -->
+  <polygon points="55,110 100,110 100,147 55,155" fill="#2E8B6E" opacity="0.15"/>
+  <!-- Label -->
+  <text x="30" y="22" fill="#2E8B6E" font-size="11" font-family="monospace" opacity="0.7">GREEN APPLE · AGGREGATE PLANNING</text>
+  <text x="380" y="35" fill="#CCE8BC" font-size="10" font-family="monospace" opacity="0.7">Total Cost: $422,660</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category ops-cat">Case 3 · Aggregate Planning</div>
+      <div class="card-body">
+        <div class="card-title">Green Apple — Workforce &amp; Production Optimization</div>
+        <div class="card-desc">
+          Built a six-month aggregate plan (Jan–Jun) jointly optimizing workforce hiring/layoffs, overtime,
+          inventory buildup, and subcontracting under seasonal demand. Analyzed sensitivity to hiring costs,
+          inventory holding costs, and promotion timing (Period 1 vs Period 4 demand pull-forward).
+        </div>
+        <div class="card-metrics">
+          <span class="metric ops-metric">Base cost $422,660</span>
+          <span class="metric ops-metric">No stockouts</span>
+          <span class="metric ops-metric">Period 1 promo optimal</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag ops-tag">Linear Programming</span>
+          <span class="tag ops-tag">Aggregate Planning</span>
+          <span class="tag ops-tag">Sensitivity Analysis</span>
+          <span class="tag ops-tag">Demand Shaping</span>
+          <span class="tag ops-tag">Excel Solver</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/Supply-Chain-Analytics" class="card-link card-link-ops" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+    <!-- CASE 4: ALKO -->
+    <div class="card ops-card">
+      <div class="card-img-real">
+        <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="180" fill="#071218"/>
+  <defs><linearGradient id="ag9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#071218"/><stop offset="100%" stop-color="#0D2028"/></linearGradient></defs>
+  <rect width="600" height="180" fill="url(#ag9)"/>
+  <!-- Central NDC -->
+  <rect x="255" y="65" width="90" height="50" rx="6" fill="#1A4A3A" stroke="#4ECFA8" stroke-width="2"/>
+  <text x="300" y="87" fill="#4ECFA8" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold">NDC</text>
+  <text x="300" y="101" fill="#4ECFA8" font-size="8" font-family="monospace" text-anchor="middle">Chicago</text>
+  <!-- 5 Regional DCs -->
+  <rect x="60" y="30" width="65" height="38" rx="4" fill="#0D2A20" stroke="#2E8B6E" stroke-width="1.5"/>
+  <text x="92" y="50" fill="#88CCAA" font-size="8" font-family="monospace" text-anchor="middle">DC-NW</text>
+  <rect x="460" y="30" width="65" height="38" rx="4" fill="#0D2A20" stroke="#2E8B6E" stroke-width="1.5"/>
+  <text x="492" y="50" fill="#88CCAA" font-size="8" font-family="monospace" text-anchor="middle">DC-NE</text>
+  <rect x="60" y="115" width="65" height="38" rx="4" fill="#0D2A20" stroke="#2E8B6E" stroke-width="1.5"/>
+  <text x="92" y="135" fill="#88CCAA" font-size="8" font-family="monospace" text-anchor="middle">DC-SW</text>
+  <rect x="460" y="115" width="65" height="38" rx="4" fill="#0D2A20" stroke="#2E8B6E" stroke-width="1.5"/>
+  <text x="492" y="135" fill="#88CCAA" font-size="8" font-family="monospace" text-anchor="middle">DC-SE</text>
+  <rect x="260" y="130" width="80" height="38" rx="4" fill="#0D2A20" stroke="#2E8B6E" stroke-width="1.5"/>
+  <text x="300" y="150" fill="#88CCAA" font-size="8" font-family="monospace" text-anchor="middle">DC-CENTRAL</text>
+  <!-- Connection lines -->
+  <line x1="125" y1="49" x2="255" y2="82" stroke="#2E8B6E" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+  <line x1="460" y1="49" x2="345" y2="82" stroke="#2E8B6E" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+  <line x1="125" y1="134" x2="255" y2="105" stroke="#2E8B6E" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+  <line x1="460" y1="134" x2="345" y2="105" stroke="#2E8B6E" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+  <line x1="300" y1="130" x2="300" y2="115" stroke="#2E8B6E" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+  <!-- Savings badge -->
+  <rect x="390" y="38" width="165" height="42" rx="6" fill="#071218" stroke="#2E8B6E" stroke-width="1.2"/>
+  <text x="472" y="57" fill="#4ECFA8" font-size="14" font-family="monospace" font-weight="bold" text-anchor="middle">$131K/yr</text>
+  <text x="472" y="72" fill="#2E8B6E" font-size="9" font-family="monospace" text-anchor="middle">PART 7 SAVINGS</text>
+  <text x="30" y="22" fill="#2E8B6E" font-size="11" font-family="monospace" opacity="0.7">ALKO · INVENTORY POOLING · RISK POOLING</text>
+</svg>
+        <div class="img-overlay"></div>
+      </div>
+      <div class="card-category ops-cat">Case 4 · Inventory Management</div>
+      <div class="card-body">
+        <div class="card-title">ALKO — Inventory Pooling &amp; Distribution Network</div>
+        <div class="card-desc">
+          Evaluated ALKO's decentralized five-DC network against full and selective centralization using
+          inventory pooling theory. Analyzed risk pooling benefits under varying demand correlations (ρ = 0, 0.5, 1.0)
+          and identified selective centralization of high-variability products (Part 7) as the optimal strategy.
+        </div>
+        <div class="card-metrics">
+          <span class="metric ops-metric">Current cost $1.478M/yr</span>
+          <span class="metric ops-metric">Part 7 savings $131K/yr</span>
+          <span class="metric ops-metric">95% service level</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag ops-tag">Inventory Theory</span>
+          <span class="tag ops-tag">Risk Pooling</span>
+          <span class="tag ops-tag">Periodic Review</span>
+          <span class="tag ops-tag">Safety Stock</span>
+          <span class="tag ops-tag">Network Design</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/sadgee/Supply-Chain-Analytics" class="card-link card-link-ops" target="_blank">GitHub</a>        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SKILLS SECTION
+═══════════════════════════════════════════ -->
+<div id="skills" class="section">
+  <span class="section-eyebrow">Technical Toolkit</span>
+  <h2 class="section-title">Skills &amp; Tools</h2>
+  <p class="section-intro">Technologies applied across projects.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>🤖 Machine Learning</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Gradient Boosting</span>
+        <span class="skill-pill">Random Forest</span>
+        <span class="skill-pill">Logistic Regression</span>
+        <span class="skill-pill">Decision Trees</span>
+        <span class="skill-pill">k-NN</span>
+        <span class="skill-pill">Ridge / LASSO</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>🧠 Deep Learning</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">CNNs</span>
+        <span class="skill-pill">MLPs</span>
+        <span class="skill-pill">Backpropagation</span>
+        <span class="skill-pill">Transfer Learning</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>📊 Analytics &amp; Unsupervised</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">K-Means</span>
+        <span class="skill-pill">Spectral Clustering</span>
+        <span class="skill-pill">PCA</span>
+        <span class="skill-pill">Segmentation</span>
+        <span class="skill-pill">A/B Testing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>⚙️ Optimization</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Linear Programming</span>
+        <span class="skill-pill">Mixed-Integer LP</span>
+        <span class="skill-pill">Markowitz Portfolio</span>
+        <span class="skill-pill">Excel Solver</span>
+        <span class="skill-pill">PuLP / OR-Tools</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>🚚 Supply Chain</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Inventory Theory</span>
+        <span class="skill-pill">Risk Pooling</span>
+        <span class="skill-pill">Aggregate Planning</span>
+        <span class="skill-pill">Network Design</span>
+        <span class="skill-pill">Monte Carlo Sim</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>🛡️ AI Ethics &amp; Safety</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">RAG / LLMs</span>
+        <span class="skill-pill">Red-Teaming</span>
+        <span class="skill-pill">Fairlearn</span>
+        <span class="skill-pill">SHAP / XAI</span>
+        <span class="skill-pill">Disparate Impact</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>🐍 Languages &amp; Tools</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">Pandas / NumPy</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">Git</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ─── CONTACT ─── -->
+<div id="contact" class="contact-strip">
+  <h2>Let's Connect</h2>
+  <p>Open to data science, ML engineering, and analytics roles.</p>
+  <div class="contact-links">
+    <a href="https://github.com/sadgee" class="contact-link cl-github" target="_blank">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/sadgee/" class="contact-link cl-linkedin" target="_blank">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="mailto:sadgeep@tepper.cmu.edu" class="contact-link cl-email">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+  </div>
+</div>
+
+<footer>
+  sadgee.github.io &nbsp;·&nbsp; built with HTML &amp; CSS &nbsp;·&nbsp; 2025
+</footer>
+
+</body>
+</html>
